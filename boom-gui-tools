@@ -17,7 +17,9 @@ install-eclipse() {
     wget http://mirror.nbtelecom.com.br/eclipse/technology/epp/downloads/release/2020-03/R/eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz >> logs/bigbang.log 2>> /dev/null
 
     sudo tar -xvzf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz --directory /opt/work/ides >> logs/bigbang.log 2>> /dev/null
-    
+
+    echo "$(echo -e -n '-vm\n/home/'$USERNAME'/.sdkman/candidates/java/current/bin/java\n'; cat eclipse.ini)" > eclipse.ini
+
     sudo desktop-file-install support/eclipse.desktop >> logs/bigbang.log 2>> /dev/null
 
     rm -rf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz >> logs/bigbang.log 2>> /dev/null
