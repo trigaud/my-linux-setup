@@ -42,15 +42,19 @@ echo "BIG BANG MY MACHINE"
 
 update-ubuntu
 
-create-base-folders
+if  [[ $1 != "--only-gui" ]]; then
 
-install-base 
+    create-base-folders
 
-source boom-server-tools
+    install-base 
 
-source boom-developer-tools
+    source boom-server-tools
 
-if  [[ $1 = "--with-gui" ]]; then
+    source boom-developer-tools
+
+fi
+
+if  [ $1 == "--with-gui" ] || [ $1 == "--only-gui" ]; then
     source boom-gui-tools
 fi
 
