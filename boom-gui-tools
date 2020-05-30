@@ -20,7 +20,22 @@ install-eclipse() {
     
     sudo desktop-file-install support/eclipse.desktop >> logs/bigbang.log 2>> /dev/null
 
-    rm -rf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz
+    rm -rf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz >> logs/bigbang.log 2>> /dev/null
+}
+
+
+install-intellij() {
+
+    echo
+    echo "Installing Intellij Community"
+
+    wget https://download-cf.jetbrains.com/idea/ideaIC-2020.1.1.tar.gz >> logs/bigbang.log 2>> /dev/null
+
+    sudo tar -xvzf ideaIC-2020.1.1.tar.gz --directory /opt/work/ides >> logs/bigbang.log 2>> /dev/null
+
+    sudo desktop-file-install support/intellij.desktop >> logs/bigbang.log 2>> /dev/null
+
+    rm -rf ideaIC-2020.1.1.tar.gz
 }
 
 install-visual-studio-code() {
@@ -55,12 +70,14 @@ install-postman() {
     sudo snap install postman >> logs/bigbang.log 2>> /dev/null
 }
 
-install-visualvm
+#install-visualvm
 
-install-eclipse
+#install-eclipse
 
-install-visual-studio-code
+install-intellij
 
-install-google-chrome
+#install-visual-studio-code
 
-install-postman
+#install-google-chrome
+
+#install-postman

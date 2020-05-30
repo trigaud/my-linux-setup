@@ -46,9 +46,9 @@ create-base-folders
 
 install-base 
 
-source boom-server-tools
+#source boom-server-tools
 
-source boom-developer-tools
+#source boom-developer-tools
 
 source boom-gui-tools
 

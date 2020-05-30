@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Intellij
+Type=Application
+Exec=/opt/work/ides/idea-IC-201.7223.91/bin/idea.sh
+Terminal=false
+Icon=/opt/work/ides/idea-IC-201.7223.91/bin/idea.png
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Intellij
+Name[en_US]=Intellij
