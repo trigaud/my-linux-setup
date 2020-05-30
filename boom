@@ -34,7 +34,7 @@ install-base() {
     echo
     echo "Installing Base Packages"
 
-    sudo apt install curl vim libxml-2-utils -y >> logs/bigbang.log 2>> /dev/null
+    sudo apt install curl vim libxml2-utils -y >> logs/bigbang.log 2>> /dev/null
 }
 
 echo 
