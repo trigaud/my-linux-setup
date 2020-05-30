@@ -50,7 +50,9 @@ source boom-server-tools
 
 source boom-developer-tools
 
-source boom-gui-tools
+if  [[ $1 = "--with-gui" ]]; then
+    source boom-gui-tools
+fi
 
 
 
