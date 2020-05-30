@@ -22,7 +22,7 @@ install-zsh() {
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting  >> logs/bigbang.log 2>> /dev/null
 
-    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions >> logs/bigbang.log 2>> /dev/null
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions >> logs/bigbang.log 2>> /dev/null
 
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf >> logs/bigbang.log 2>> /dev/null &&  echo "y y y y" | ~/.fzf/install >> logs/bigbang.log 2>> /dev/null
 
