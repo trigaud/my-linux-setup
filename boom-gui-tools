@@ -70,14 +70,14 @@ install-postman() {
     sudo snap install postman >> logs/bigbang.log 2>> /dev/null
 }
 
-#install-visualvm
+install-visualvm
 
-#install-eclipse
+install-eclipse
 
 install-intellij
 
-#install-visual-studio-code
+install-visual-studio-code
 
-#install-google-chrome
+install-google-chrome
 
-#install-postman
+install-postman
