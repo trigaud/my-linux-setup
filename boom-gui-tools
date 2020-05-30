@@ -1,0 +1,66 @@
+#!/bin/bash
+
+install-visualvm() {
+
+    echo
+    echo "Installing VisualVM"
+
+    sdk install visualvm 2.0.2 >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-eclipse() {
+
+    echo
+    echo "Installing Eclipse"
+
+    wget http://mirror.nbtelecom.com.br/eclipse/technology/epp/downloads/release/2020-03/R/eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz >> logs/bigbang.log 2>> /dev/null
+
+    sudo tar -xvzf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz --directory /opt/work/ides >> logs/bigbang.log 2>> /dev/null
+    
+    sudo desktop-file-install support/eclipse.desktop >> logs/bigbang.log 2>> /dev/null
+
+    rm -rf eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz
+}
+
+install-visual-studio-code() {
+
+    echo
+    echo "Installing Visual Studio Code"
+
+    wget https://az764295.vo.msecnd.net/stable/5763d909d5f12fe19f215cbfdd29a91c0fa9208a/code_1.45.1-1589445302_amd64.deb >> logs/bigbang.log 2>> /dev/null
+
+    sudo dpkg -i code_1.45.1-1589445302_amd64.deb >> logs/bigbang.log 2>> /dev/null
+
+    rm -rf code_1.45.1-1589445302_amd64.deb
+}
+
+install-google-chrome() {
+
+    echo
+    echo "Installing Google Chrome"
+
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb >> logs/bigbang.log 2>> /dev/null
+
+    sudo dpkg -i google-chrome-stable_current_amd64.deb >> logs/bigbang.log 2>> /dev/null
+
+    rm -rf google-chrome-stable_current_amd64.deb
+}
+
+install-postman() {
+
+    echo
+    echo "Installing Postman"
+
+    sudo snap install postman >> logs/bigbang.log 2>> /dev/null
+}
+
+install-visualvm
+
+install-eclipse
+
+install-visual-studio-code
+
+install-google-chrome
+
+install-postman

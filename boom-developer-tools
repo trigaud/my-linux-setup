@@ -1,0 +1,135 @@
+#!/bin/bash
+
+install-git() {
+
+    echo
+    echo "Installing Git"
+
+    sudo apt install git -y >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-zsh() {
+
+    echo
+    echo "Installing Zsh and Oh My Zsh"
+
+    sudo apt install zsh -y >> logs/bigbang.log 2>> /dev/null
+
+    curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh >> logs/bigbang.log 2>> /dev/null
+
+    sudo usermod --shell $(which zsh) $USER >> logs/bigbang.log 2>> /dev/null
+
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting  >> logs/bigbang.log 2>> /dev/null
+
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions >> logs/bigbang.log 2>> /dev/null
+
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf >> logs/bigbang.log 2>> /dev/null &&  echo "y y y y" | ~/.fzf/install >> logs/bigbang.log 2>> /dev/null
+
+    cp -f support/ohmyzsh ~/.zshrc
+}
+
+install-java() {
+
+    echo
+    echo "Installing Java"
+
+    curl -s "https://get.sdkman.io" | bash >> logs/bigbang.log 2>> /dev/null
+
+    source "$HOME/.sdkman/bin/sdkman-init.sh" >> logs/bigbang.log 2>> /dev/null
+
+    sdk install java 8.0.252.hs-adpt >> logs/bigbang.log 2>> /dev/null
+
+    echo "Y" | sdk install java 11.0.7.hs-adpt >> logs/bigbang.log 2>> /dev/null
+    
+}
+
+install-maven() {
+
+    echo
+    echo "Installing Maven"
+
+    sdk install maven 3.6.3 >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-ant() {
+
+    echo
+    echo "Installing Ant"
+
+    sdk install ant 1.10.1 >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-nodejs() {
+
+    echo
+    echo "Installing Nodejs"
+
+    curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh -o install_nvm.sh >> logs/bigbang.log 2>> /dev/null
+
+    bash install_nvm.sh >> logs/bigbang.log 2>> /dev/null
+
+    source ~/.profile >> logs/bigbang.log 2>> /dev/null
+
+    nvm install 12.16.3 >> logs/bigbang.log 2>> /dev/null
+
+    nvm use 12.16.3 >> logs/bigbang.log 2>> /dev/null
+
+    nvm alias default 12.16.3 >> logs/bigbang.log 2>> /dev/null
+
+    rm -rf install_nvm.sh
+}
+
+install-yarn() {
+
+    echo
+    echo "Installing Yarn"
+
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - >> logs/bigbang.log 2>> /dev/null
+
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list >> logs/bigbang.log 2>> /dev/null
+
+    sudo apt update -y >> logs/bigbang.log 2>> /dev/null
+    
+    sudo apt install yarn -y >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-react() {
+
+    echo
+    echo "Installing React"
+
+    npm install -g create-react-app >> logs/bigbang.log 2>> /dev/null
+}
+
+install-docker-compose() {
+
+    echo
+    echo "Installing Docker Compose"
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >> logs/bigbang.log 2>> /dev/null
+
+    sudo chmod +x /usr/local/bin/docker-compose >> logs/bigbang.log 2>> /dev/null
+
+}
+
+install-git
+
+install-zsh
+
+install-java
+
+install-maven
+
+install-ant
+
+install-nodejs
+
+install-yarn
+
+install-docker-compose
+
+install-react

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+echo -e "################################################"
+echo -e "       BIGBANG JAVA DEVELOPER MACHINE           "
+echo -e "################################################"
+
+echo "First, enter your user password:"
+read -s password
+
+update-ubuntu() {
+
+    echo
+    echo "Updating Ubuntu"
+
+    mkdir -p logs
+
+    echo $password | sudo -S apt update -y >> logs/bigbang.log 2>> /dev/null
+}
+
+create-base-folders() {
+
+    echo
+    echo "Creating Base Packages"
+
+    sudo mkdir -p /opt/work
+    sudo chown -R $USERNAME:$USERNAME /opt/work
+    sudo mkdir -p /opt/work/ides
+    sudo mkdir -p /opt/work/projects
+    sudo mkdir -p /opt/work/workspaces
+}
+
+install-base() {
+
+    echo
+    echo "Installing Base Packages"
+
+    sudo apt install curl vim libxml-2-utils -y >> logs/bigbang.log 2>> /dev/null
+}
+
+echo 
+echo "BIG BANG MY MACHINE"
+
+update-ubuntu
+
+create-base-folders
+
+install-base 
+
+source boom-server-tools
+
+source boom-developer-tools
+
+source boom-gui-tools
+
+
+
