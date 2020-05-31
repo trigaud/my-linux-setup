@@ -20,7 +20,7 @@ update-ubuntu() {
 create-base-folders() {
 
     echo
-    echo "Creating Base Packages"
+    echo "Checking Base Folders"
 
     sudo mkdir -p /opt/work
     sudo chown -R $USERNAME:$USERNAME /opt/work
@@ -32,9 +32,57 @@ create-base-folders() {
 install-base() {
 
     echo
-    echo "Installing Base Packages"
+    echo "Checking Base Packages"
 
-    sudo apt install curl vim libxml2-utils -y >> logs/bigbang.log 2>> /dev/null
+    if ! [ -x "$(command -v htop)" ]; then
+        sudo apt install -y htop >> logs/bigbang.log 2>> /dev/null
+        echo "htop was successfully installed!"
+    else
+        echo "htop is already installed!"
+    fi
+
+    if ! [ -x "$(command -v httpie)" ]; then
+        sudo apt install -y httpie >> logs/bigbang.log 2>> /dev/null
+        echo "httpie was successfully installed!"
+    else
+        echo "httpie is already installed!"
+    fi
+
+    if ! [ -x "$(command -v jq)" ]; then
+        sudo apt install -y jq >> logs/bigbang.log 2>> /dev/null
+        echo "jq was successfully installed!"
+    else
+        echo "jq is already installed!"
+    fi
+
+    if ! [ -x "$(command -v curl)" ]; then
+        sudo apt install -y curl >> logs/bigbang.log 2>> /dev/null
+        echo "curl was successfully installed!"
+    else
+        echo "curl is already installed!"
+    fi
+
+    if ! [ -x "$(command -v vim)" ]; then
+        sudo apt install -y vim >> logs/bigbang.log 2>> /dev/null
+        echo "vim was successfully installed!"
+    else
+        echo "vim is already installed!"
+    fi
+
+    if ! [ -x "$(command -v meld)" ]; then
+        sudo apt install -y meld >> logs/bigbang.log 2>> /dev/null
+        echo "meld was successfully installed!"
+    else
+        echo "meld is already installed!"
+    fi
+
+    if ! [ -x "$(command -v libxml2-utils)" ]; then
+        sudo apt install -y libxml2-utils >> logs/bigbang.log 2>> /dev/null        
+        echo "libxml2-utils was successfully installed!"
+    else
+        echo "libxml2-utils is already installed!"
+    fi 
+    
 }
 
 echo 
