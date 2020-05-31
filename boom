@@ -35,6 +35,7 @@ install-base() {
     echo "Checking Base Packages"
 
     if ! [ -x "$(command -v htop)" ]; then
+        echo "Installing htop"
         sudo apt install -y htop >> logs/bigbang.log 2>> /dev/null
         echo "htop was successfully installed!"
     else
@@ -42,6 +43,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v httpie)" ]; then
+        echo "Installing httpie"
         sudo apt install -y httpie >> logs/bigbang.log 2>> /dev/null
         echo "httpie was successfully installed!"
     else
@@ -49,6 +51,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v jq)" ]; then
+        echo "Installing jq"
         sudo apt install -y jq >> logs/bigbang.log 2>> /dev/null
         echo "jq was successfully installed!"
     else
@@ -56,6 +59,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v curl)" ]; then
+        echo "Installing curl"
         sudo apt install -y curl >> logs/bigbang.log 2>> /dev/null
         echo "curl was successfully installed!"
     else
@@ -63,6 +67,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v vim)" ]; then
+        echo "Installing vim"
         sudo apt install -y vim >> logs/bigbang.log 2>> /dev/null
         echo "vim was successfully installed!"
     else
@@ -70,6 +75,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v meld)" ]; then
+        echo "Installing meld"
         sudo apt install -y meld >> logs/bigbang.log 2>> /dev/null
         echo "meld was successfully installed!"
     else
@@ -77,6 +83,7 @@ install-base() {
     fi
 
     if ! [ -x "$(command -v libxml2-utils)" ]; then
+        echo "Installing libxml2-utils"
         sudo apt install -y libxml2-utils >> logs/bigbang.log 2>> /dev/null        
         echo "libxml2-utils was successfully installed!"
     else
