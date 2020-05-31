@@ -116,63 +116,63 @@ install-docker-compose() {
 
 }
 
-if [ -x "$(command -v git)" ]; then
+if ! [ -x "$(command -v git)" ]; then
     install-git
     echo "Git was successfully installed!"
 else
     echo "Git is already installed!"
 fi
 
-if [ -x "$(command -v zsh)" ]; then
+if ! [ -x "$(command -v zsh)" ]; then
     install-zsh
     echo "Zsh and OhMyZsh was successfully installed!"
 else
     echo "ZSH is already installed!"
 fi
 
-if [ -x "$(command -v java)" ]; then
+if ! [ -x "$(command -v java)" ]; then
     install-java
     echo "Java was successfully installed!"
 else
     echo "Java is already installed!"
 fi
 
-if [ -x "$(command -v maven)" ]; then
+if ! [ -x "$(command -v mvn)" ]; then
     install-maven
     echo "Maven was successfully installed!"
 else
     echo "Maven is already installed!"
 fi
 
-if [ -x "$(command -v ant)" ]; then
+if ! [ -x "$(command -v ant)" ]; then
     install-ant
     echo "Ant was successfully installed!"
 else
     echo "Ant is already installed!"
 fi
 
-if [ -x "$(command -v node)" ]; then
+if ! [ -x "$(command -v node)" ]; then
     install-nodejs
     echo "NodeJS was successfully installed!"
 else
     echo "NodeJS is already installed!"
 fi
 
-if [ -x "$(command -v yarn)" ]; then
+if ! [ -x "$(command -v yarn)" ]; then
     install-yarn
     echo "Yarn was successfully installed!"
 else
     echo "Yarn is already installed!"
 fi
 
-if [ -x "$(command -v docker-compose)" ]; then
+if ! [ -x "$(command -v docker-compose)" ]; then
     install-docker-compose
     echo "Docker Compose was successfully installed!"
 else
     echo "Docker Compose is already installed!"
 fi
 
-if [ -x "$(command -v npx create-react-app)" ]; then
+if ! [ -x "$(command -v npx create-react-app --version)" ]; then
     install-react
     echo "Create React App was successfully installed!"
 else

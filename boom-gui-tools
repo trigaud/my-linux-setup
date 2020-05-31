@@ -74,42 +74,42 @@ install-postman() {
     sudo snap install postman >> logs/bigbang.log 2>> /dev/null
 }
 
-if [ -x "$(command -v visualvm)" ]; then
+if ! [ -x "$(command -v visualvm)" ]; then
     install-visualvm
     echo "VisualVM was successfully installed!"
 else
     echo "VisualVM is already installed!"
 fi
 
-if [ -x "$(command -v /opt/work/ides/eclipse/eclipse)" ]; then
+if ! [ -x "$(command -v /opt/work/ides/eclipse/eclipse)" ]; then
     install-eclipse
     echo "Eclipse was successfully installed!"
 else
     echo "Eclipse is already installed!"
 fi
 
-if [ -x "$(command -v /opt/work/ides/idea-IC-201.7223.91/bin/idea.sh)" ]; then
+if ! [ -x "$(command -v /opt/work/ides/idea-IC-201.7223.91/bin/idea.sh)" ]; then
     install-intellij
     echo "Intellij Community was successfully installed!"
 else
     echo "Intellij Community is already installed!"
 fi
 
-if [ -x "$(command -v code)" ]; then
+if ! [ -x "$(command -v code)" ]; then
     install-visual-studio-code
     echo "Visual Studio Code was successfully installed!"
 else
     echo "Visual Studio Code is already installed!"
 fi
 
-if [ -x "$(command -v google-chrome)" ]; then
+if ! [ -x "$(command -v google-chrome)" ]; then
     install-google-chrome
     echo "Google Chrome was successfully installed!"
 else
     echo "Google Chrome is already installed!"
 fi
 
-if [ -x "$(command -v postman)" ]; then
+if ! [ -x "$(command -v postman)" ]; then
     install-postman
     echo "Postman Code was successfully installed!"
 else
