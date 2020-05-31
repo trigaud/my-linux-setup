@@ -54,8 +54,10 @@ if  [[ $1 != "--only-gui" ]]; then
 
 fi
 
-if  [ $1 == "--with-gui" ] || [ $1 == "--only-gui" ]; then
-    source boom-gui-tools
+if [ ! -z "$1" ]; then
+    if  [ $1 == "--with-gui" ] || [ $1 == "--only-gui" ]; then
+        source boom-gui-tools
+    fi
 fi
 
 
