@@ -102,7 +102,7 @@ install-react() {
     echo
     echo "Installing React"
 
-    npm install -g create-react-app >> logs/bigbang.log 2>> /dev/null
+    yarn global add create-react-app >> logs/bigbang.log 2>> /dev/null
 }
 
 install-docker-compose() {
@@ -172,7 +172,7 @@ else
     echo "Docker Compose is already installed!"
 fi
 
-if ! [ -x "$(command -v npx create-react-app --version)" ]; then
+if ! [ -x "$(command -v yarn create react-app --version)" ]; then
     install-react
     echo "Create React App was successfully installed!"
 else
