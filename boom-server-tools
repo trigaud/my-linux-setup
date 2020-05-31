@@ -22,4 +22,8 @@ install-docker() {
 
 }
 
-install-docker
+if [ -x "$(command -v docker)" ]; then
+    install-docker
+else
+    echo "Docker is already installed!"
+fi

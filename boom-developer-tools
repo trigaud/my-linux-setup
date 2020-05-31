@@ -116,20 +116,65 @@ install-docker-compose() {
 
 }
 
-install-git
+if [ -x "$(command -v git)" ]; then
+    install-git
+    echo "Git was successfully installed!"
+else
+    echo "Git is already installed!"
+fi
 
-install-zsh
+if [ -x "$(command -v zsh)" ]; then
+    install-zsh
+    echo "Zsh and OhMyZsh was successfully installed!"
+else
+    echo "ZSH is already installed!"
+fi
 
-install-java
+if [ -x "$(command -v java)" ]; then
+    install-java
+    echo "Java was successfully installed!"
+else
+    echo "Java is already installed!"
+fi
 
-install-maven
+if [ -x "$(command -v maven)" ]; then
+    install-maven
+    echo "Maven was successfully installed!"
+else
+    echo "Maven is already installed!"
+fi
 
-install-ant
+if [ -x "$(command -v ant)" ]; then
+    install-ant
+    echo "Ant was successfully installed!"
+else
+    echo "Ant is already installed!"
+fi
 
-install-nodejs
+if [ -x "$(command -v node)" ]; then
+    install-nodejs
+    echo "NodeJS was successfully installed!"
+else
+    echo "NodeJS is already installed!"
+fi
 
-install-yarn
+if [ -x "$(command -v yarn)" ]; then
+    install-yarn
+    echo "Yarn was successfully installed!"
+else
+    echo "Yarn is already installed!"
+fi
 
-install-docker-compose
+if [ -x "$(command -v docker-compose)" ]; then
+    install-docker-compose
+    echo "Docker Compose was successfully installed!"
+else
+    echo "Docker Compose is already installed!"
+fi
 
-install-react
+if [ -x "$(command -v npx create-react-app)" ]; then
+    install-react
+    echo "Create React App was successfully installed!"
+else
+    echo "Create React App is already installed!"
+fi
