@@ -34,6 +34,22 @@ install-base() {
     echo
     echo "Checking Base Packages"
 
+    if ! [ -x "$(command -v zip)" ]; then
+        echo "Installing zip"
+        sudo apt install -y zip >> logs/bigbang.log 2>> /dev/null
+        echo "zip was successfully installed!"
+    else
+        echo "zip is already installed!"
+    fi
+
+    if ! [ -x "$(command -v unzip)" ]; then
+        echo "Installing unzip"
+        sudo apt install -y unzip >> logs/bigbang.log 2>> /dev/null
+        echo "unzip was successfully installed!"
+    else
+        echo "unzip is already installed!"
+    fi
+
     if ! [ -x "$(command -v htop)" ]; then
         echo "Installing htop"
         sudo apt install -y htop >> logs/bigbang.log 2>> /dev/null
@@ -72,14 +88,6 @@ install-base() {
         echo "vim was successfully installed!"
     else
         echo "vim is already installed!"
-    fi
-
-    if ! [ -x "$(command -v meld)" ]; then
-        echo "Installing meld"
-        sudo apt install -y meld >> logs/bigbang.log 2>> /dev/null
-        echo "meld was successfully installed!"
-    else
-        echo "meld is already installed!"
     fi
 
     if ! [ -x "$(command -v libxml2-utils)" ]; then
