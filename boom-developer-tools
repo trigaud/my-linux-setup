@@ -38,7 +38,7 @@ install-java() {
 
     source "$HOME/.sdkman/bin/sdkman-init.sh" >> logs/bigbang.log 2>> /dev/null
 
-    sdk install java 8.0.265.hs >> logs/bigbang.log 2>> /dev/null
+    sdk install java 8.0.265.hs-adpt >> logs/bigbang.log 2>> /dev/null
 
     echo "Y" | sdk install java 11.0.8.hs >> logs/bigbang.log 2>> /dev/null
     
