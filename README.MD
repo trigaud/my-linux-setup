@@ -1,4 +1,4 @@
-# BIGBANG JAVA DEVELOPER MACHINE SCRIPT
+# MY LINUX SETUP
 
 This script installs and configures the essentials tools to create apps with Java Platform on Ubuntu 18.04 or 20.04.
 > You can use this script, without the '--with-gui' option, to configure the tools inside Windows WSL 2 or as a Vagrant provisioning script file.
